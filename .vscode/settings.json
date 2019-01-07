@@ -1,0 +1,51 @@
+{
+  "cSpell.ignorePaths": [
+    "**/package.json",
+    "**/package-lock.json",
+    "**/node_modules/**",
+    "**/vscode-extension/**",
+    "**/.git/**",
+    ".vscode",
+    "typings"
+  ],
+  "cSpell.words": [
+    "csrf",
+    "datasource",
+    "datasources",
+    "definitelytyped",
+    "isemail",
+    "promisified",
+    "charcode",
+    "refetch",
+    "inmemory",
+    "testid",
+    "keyframes",
+    "mixins",
+    "stylelint",
+    "combinator",
+    "typedefs"
+  ],
+  "css.validate": false,
+  "editor.formatOnSave": true,
+  "less.validate": false,
+  "prettier.stylelintIntegration": true,
+  "prettier.tslintIntegration": true,
+  "scss.validate": false,
+  "search.exclude": {
+    "**/bower_components": true,
+    "**/coverge": true,
+    "**/dist": true,
+    "**/node_modules": true
+  },
+  "todo-tree.customHighlight": {
+    "FIXME": {
+      "background": "red"
+    },
+    "TODO": {
+      "background": "yellow"
+    }
+  },
+  "tslint.exclude": "**/node_modules/**/*",
+  "tslint.ignoreDefinitionFiles": false,
+  "typescript.referencesCodeLens.enabled": true
+}

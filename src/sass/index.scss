@@ -1,0 +1,58 @@
+@import './abstracts/colors';
+@import './base/reset';
+@import './base/typography';
+
+$unit: $font-size;
+
+html {
+  height: 100%;
+  font-size: $font-size;
+}
+
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: $background;
+  color: $text;
+  font-family: $font-stack;
+}
+
+#root {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2.25rem;
+}
+
+h5 {
+  font-size: 1rem;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+}

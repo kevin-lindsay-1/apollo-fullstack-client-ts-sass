@@ -1,0 +1,9 @@
+@import '../../sass/abstracts/mixins';
+
+.menuItem {
+  @include menuItem();
+}
+
+.linkedMenuItem {
+  @include linkedMenuItem();
+}

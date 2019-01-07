@@ -1,0 +1,19 @@
+@import '../../sass/abstracts/colors';
+
+.container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.25rem;
+}
+
+.image {
+  $size: 8.375rem;
+  width: $size;
+  height: $size;
+  margin-right: 1.25rem;
+}
+
+.subHeading {
+  margin-top: 1rem;
+  color: $textSecondary;
+}

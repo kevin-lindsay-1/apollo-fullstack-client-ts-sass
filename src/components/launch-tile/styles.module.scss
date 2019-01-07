@@ -1,0 +1,13 @@
+@import '../../sass/abstracts/mixins';
+
+.launchTile {
+  @include card();
+  display: block;
+  height: 12rem;
+  margin-top: padding;
+  text-decoration: none;
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}

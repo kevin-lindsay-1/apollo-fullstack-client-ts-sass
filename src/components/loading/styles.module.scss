@@ -1,0 +1,18 @@
+@import '../../sass/abstracts/colors';
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  display: block;
+  margin: auto;
+  fill: $grey;
+
+  path {
+    animation: spin 1s linear infinite;
+    transform-origin: center;
+  }
+}

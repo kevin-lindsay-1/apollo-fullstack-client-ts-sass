@@ -1,0 +1,51 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@reach/router": "^1.2.1",
+    "apollo-cache-inmemory": "alpha",
+    "apollo-client": "alpha",
+    "apollo-link-context": "^1.0.12",
+    "apollo-link-http": "^1.5.9",
+    "dotenv": "^6.2.0",
+    "graphql": "^14.0.2",
+    "graphql-tag": "^2.10.0",
+    "node-sass": "^4.11.0",
+    "react": "^16.7.0",
+    "react-apollo": "alpha",
+    "react-dom": "^16.7.0",
+    "react-scripts": "2.1.2"
+  },
+  "devDependencies": {
+    "@emotion/types": "^0.7.0",
+    "@types/graphql": "^14.0.4",
+    "@types/jest": "^23.3.11",
+    "@types/node": "^10.12.18",
+    "@types/reach__router": "^1.2.2",
+    "@types/react": "^16.7.18",
+    "@types/react-dom": "^16.0.11",
+    "prettier-stylelint": "^0.4.2",
+    "prettier-tslint": "^0.4.2",
+    "react-testing-library": "^5.4.2",
+    "stylelint": "^9.9.0",
+    "stylelint-config-idiomatic-order": "^6.2.0",
+    "stylelint-config-recommended": "^2.1.0",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.2.2"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

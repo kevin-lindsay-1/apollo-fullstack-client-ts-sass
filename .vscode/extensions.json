@@ -1,0 +1,20 @@
+{
+  "recommendations": [
+    "apollographql.vscode-apollo",
+    "coenraads.bracket-pair-colorizer",
+    "cssho.vscode-svgviewer",
+    "eamodio.gitlens",
+    "eg2.tslint",
+    "eg2.vscode-npm-script",
+    "esbenp.prettier-vscode",
+    "gruntfuggly.todo-tree",
+    "mikestead.dotenv",
+    "peterjausovec.vscode-docker",
+    "pkief.material-icon-theme",
+    "richie5um2.vscode-sort-json",
+    "shinnn.stylelint",
+    "steoates.autoimport",
+    "streetsidesoftware.code-spell-checker",
+    "zuoez02.tslint-snippets"
+  ]
+}
