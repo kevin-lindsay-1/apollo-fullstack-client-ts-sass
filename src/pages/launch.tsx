@@ -23,13 +23,13 @@ export const GET_LAUNCH_DETAILS = gql`
 
 // TODO: replace with dynamic definition from GQL response
 interface IProps {
-  id: string;
+  launchId: string;
 }
 
 export const Launch: FunctionComponent<RouteComponentProps<IProps>> = ({
-  id,
+  launchId,
 }) => (
-  <Query query={GET_LAUNCH_DETAILS} variables={{ launchId: id }}>
+  <Query query={GET_LAUNCH_DETAILS} variables={{ launchId }}>
     {({ data, loading, error }) => {
       if (loading) return <Loading />;
       if (error) return <p>ERROR: {error.message}</p>;
