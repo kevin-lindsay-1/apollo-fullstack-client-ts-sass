@@ -9,7 +9,7 @@ import ReactDOM from 'react-dom';
 import Pages from './pages';
 import Login from './pages/login';
 import { resolvers, typeDefs } from './resolvers';
-import './sass/index.scss';
+import './scss/index.scss';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000/graphql',
