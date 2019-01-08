@@ -1,9 +1,9 @@
-@import '../../scss/abstracts/mixins';
+@import '../../scss/components/menuItem';
 
 .menuItem {
-  @include menuItem();
+  @extend %menuItem;
 }
 
 .linkedMenuItem {
-  @include linkedMenuItem();
+  @extend %linkedMenuItem;
 }

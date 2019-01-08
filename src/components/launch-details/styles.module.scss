@@ -1,7 +1,7 @@
-@import '../../scss/abstracts/mixins';
+@import '../../scss/components/card';
 
 .launchDetails {
-  @include card();
+  @extend %card;
   height: 22.125rem;
   margin-bottom: 2rem;
 }

@@ -8,35 +8,12 @@
     ".vscode",
     "typings"
   ],
-  "cSpell.words": [
-    "csrf",
-    "datasource",
-    "datasources",
-    "definitelytyped",
-    "isemail",
-    "promisified",
-    "charcode",
-    "refetch",
-    "inmemory",
-    "testid",
-    "keyframes",
-    "mixins",
-    "stylelint",
-    "combinator",
-    "typedefs"
-  ],
+  "cSpell.words": ["inmemory"],
   "css.validate": false,
   "editor.formatOnSave": true,
-  "less.validate": false,
   "prettier.stylelintIntegration": true,
   "prettier.tslintIntegration": true,
   "scss.validate": false,
-  "search.exclude": {
-    "**/bower_components": true,
-    "**/coverge": true,
-    "**/dist": true,
-    "**/node_modules": true
-  },
   "todo-tree.customHighlight": {
     "FIXME": {
       "background": "red"

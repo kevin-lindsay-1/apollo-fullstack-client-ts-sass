@@ -1,7 +1,7 @@
-@import '../../scss/abstracts/mixins';
+@import '../../scss/components/menuItem';
 
 .logoutButton {
-  @include menuItem();
+  @extend %menuItem;
   padding: 0;
   border: none;
   background: none;

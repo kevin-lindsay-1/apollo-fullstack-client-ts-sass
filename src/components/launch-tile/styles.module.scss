@@ -1,7 +1,7 @@
-@import '../../scss/abstracts/mixins';
+@import '../../scss/components/card';
 
 .launchTile {
-  @include card();
+  @extend %card;
   display: block;
   height: 12rem;
   margin-top: padding;

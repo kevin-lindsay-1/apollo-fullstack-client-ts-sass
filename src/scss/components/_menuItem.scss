@@ -1,6 +1,6 @@
 @import '../abstracts/colors';
 
-@mixin menuItem() {
+%menuItem {
   width: 0;
   flex-grow: 1;
   color: inherit;
@@ -18,16 +18,8 @@
   }
 }
 
-@mixin linkedMenuItem() {
-  @include menuItem();
+%linkedMenuItem {
+  @extend %menuItem;
   cursor: pointer;
   text-decoration: none;
-}
-
-@mixin card() {
-  padding: 2rem 2.5rem;
-  background-position: center;
-  background-size: cover;
-  border-radius: 0.375rem;
-  color: #FFF;
 }

@@ -1,24 +1,48 @@
-# FIXME: this probably doesn't work properly since changes
+# Arguments/varibles to be used later
+ARG port=5000
 
-# specify the node base image with your desired version node:<version>
-FROM node:10
+# -----
+# BUILD
+# -----
 
-# replace this with your application's default port
-EXPOSE 3000
+# Pull node LTS image
+FROM node:lts AS build
 
-# specifies the working directory for the container
+# Set the working directory
 WORKDIR /usr/src/app
 
-# copy environment variables
-COPY .env ./
-
-# grabs package and package lock files for installation
+# Get package information
 COPY package*.json ./
 
-# installs prod dependencies
-RUN npm install --only-production
+# Install all dependencies
+RUN npm i
 
-# copies the built files into the source directory
-COPY ./dist ./dist
+# Get rest of files
+COPY . ./
 
-CMD [ "npm", "start" ]
+# Run tests
+RUN npm run test
+
+# If tests pass, build
+RUN npm run build
+
+# ------
+# DEPLOY
+# ------
+
+# If build succeeds, grab the output files
+# Reset the container
+FROM node:lts
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Get sources from previous build
+COPY --from=build /usr/src/app/build ./
+
+# Install serve
+RUN npm i serve
+
+EXPOSE $port
+
+CMD [ "serve", "-s", "build" ]
