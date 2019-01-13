@@ -8,7 +8,7 @@
     ".vscode",
     "typings"
   ],
-  "cSpell.words": ["inmemory"],
+  "cSpell.words": ["inmemory", "refetch"],
   "css.validate": false,
   "editor.formatOnSave": true,
   "prettier.stylelintIntegration": true,

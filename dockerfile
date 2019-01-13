@@ -43,6 +43,8 @@ COPY --from=build /usr/src/app/build ./
 # Install serve
 RUN npm i serve
 
+# Inform container runner which port to use
 EXPOSE $port
 
+# Start the server when the container initializes
 CMD [ "serve", "-s", "build" ]

@@ -14,7 +14,7 @@
     "apollo-client": "alpha",
     "apollo-link-context": "^1.0.12",
     "apollo-link-http": "^1.5.9",
-    "dotenv": "^6.2.0",
+    "env-cmd": "^8.0.2",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
     "node-sass": "^4.11.0",
