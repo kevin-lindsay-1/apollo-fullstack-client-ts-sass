@@ -1,14 +1,4 @@
 {
-  "cSpell.ignorePaths": [
-    "**/package.json",
-    "**/package-lock.json",
-    "**/node_modules/**",
-    "**/vscode-extension/**",
-    "**/.git/**",
-    ".vscode",
-    "typings"
-  ],
-  "cSpell.words": ["inmemory", "refetch"],
   "css.validate": false,
   "editor.formatOnSave": true,
   "prettier.stylelintIntegration": true,
