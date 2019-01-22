@@ -4,10 +4,7 @@ import { Mutation } from 'react-apollo';
 import { Button } from '../components';
 import { GET_LAUNCH_DETAILS } from '../pages/launch';
 
-// export all queries used in this file for testing
-export { GET_LAUNCH_DETAILS };
-
-const TOGGLE_CART = gql`
+export const TOGGLE_CART = gql`
   mutation addOrRemoveFromCart($launchId: ID!) {
     addOrRemoveFromCart(id: $launchId) @client
   }

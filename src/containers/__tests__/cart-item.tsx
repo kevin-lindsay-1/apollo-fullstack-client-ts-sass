@@ -1,13 +1,5 @@
 import React from 'react';
-
-import {
-  renderApollo,
-  cleanup,
-  getByTestId,
-  fireEvent,
-  waitForElement,
-  render,
-} from '../../test-utils';
+import { cleanup, renderApollo, waitForElement } from '../../test-utils';
 import CartItem, { GET_LAUNCH } from '../cart-item';
 
 const mockLaunch = {
@@ -24,12 +16,12 @@ const mockLaunch = {
   },
 };
 
-xdescribe('cart item', () => {
+describe('cart item', () => {
   // automatically unmount and cleanup DOM after the test is finished.
   afterEach(cleanup);
 
   it('queries item and renders without error', () => {
-    let mocks = [
+    const mocks = [
       {
         request: { query: GET_LAUNCH, variables: { launchId: 1 } },
         result: { data: { launch: mockLaunch } },
@@ -38,7 +30,7 @@ xdescribe('cart item', () => {
 
     // since we know the name of the mission, and know that name
     // will be rendered at some point, we can use getByText
-    const { getByText, debug } = renderApollo(<CartItem launchId={1} />, {
+    const { getByText } = renderApollo(<CartItem launchId={1} />, {
       mocks,
       addTypename: false,
     });
@@ -50,7 +42,7 @@ xdescribe('cart item', () => {
   });
 
   it('renders with error state', () => {
-    let mocks = [
+    const mocks = [
       {
         request: { query: GET_LAUNCH, variables: { launchId: 1 } },
         error: new Error('aw shucks'),
@@ -59,7 +51,7 @@ xdescribe('cart item', () => {
 
     // since we know the error message, we can use getByText
     // to recognize the error
-    const { getByText, debug } = renderApollo(<CartItem launchId={1} />, {
+    const { getByText } = renderApollo(<CartItem launchId={1} />, {
       mocks,
       addTypename: false,
     });

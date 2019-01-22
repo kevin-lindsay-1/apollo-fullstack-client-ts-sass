@@ -9,6 +9,9 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "serve": "^10.1.1"
+  },
+  "devDependencies": {
     "@reach/router": "^1.2.1",
     "apollo-cache-inmemory": "alpha",
     "apollo-client": "alpha",
@@ -21,9 +24,7 @@
     "react": "^16.7.0",
     "react-apollo": "alpha",
     "react-dom": "^16.7.0",
-    "react-scripts": "2.1.2"
-  },
-  "devDependencies": {
+    "react-scripts": "2.1.2",
     "@emotion/types": "^0.7.0",
     "@types/graphql": "^14.0.4",
     "@types/jest": "^23.3.11",

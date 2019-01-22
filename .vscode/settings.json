@@ -1,6 +1,9 @@
 {
   "css.validate": false,
   "editor.formatOnSave": true,
+  "files.exclude": {
+    "**/node_modules": true
+  },
   "prettier.stylelintIntegration": true,
   "prettier.tslintIntegration": true,
   "scss.validate": false,

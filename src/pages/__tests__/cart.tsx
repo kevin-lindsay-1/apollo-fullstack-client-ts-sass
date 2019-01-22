@@ -1,17 +1,9 @@
-import React from 'react';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-
-import {
-  renderApollo,
-  cleanup,
-  getByTestId,
-  fireEvent,
-  waitForElement,
-  render,
-} from '../../test-utils';
+import React from 'react';
+import { cleanup, renderApollo, waitForElement } from '../../test-utils';
 import Cart, { GET_CART_ITEMS } from '../cart';
 
-xdescribe('Cart Page', () => {
+describe('Cart Page', () => {
   // automatically unmount and cleanup DOM after the test is finished.
   afterEach(cleanup);
 
@@ -23,7 +15,7 @@ xdescribe('Cart Page', () => {
       data: { cartItems: [] },
     });
 
-    let mocks = [
+    const mocks = [
       {
         request: { query: GET_CART_ITEMS },
         result: { data: { cartItems: [] } },
@@ -41,7 +33,7 @@ xdescribe('Cart Page', () => {
       data: { cartItems: [1] },
     });
 
-    let mocks = [
+    const mocks = [
       {
         request: { query: GET_CART_ITEMS },
         result: { data: { cartItems: [1] } },

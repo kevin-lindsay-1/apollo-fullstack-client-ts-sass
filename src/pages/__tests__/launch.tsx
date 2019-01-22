@@ -1,14 +1,5 @@
 import React from 'react';
-import { print } from 'graphql';
-
-import {
-  renderApollo,
-  cleanup,
-  getByTestId,
-  fireEvent,
-  waitForElement,
-  render,
-} from '../../test-utils';
+import { cleanup, renderApollo, waitForElement } from '../../test-utils';
 import Launch, { GET_LAUNCH_DETAILS } from '../launch';
 
 const mockLaunch = {
@@ -31,7 +22,7 @@ const mockLaunch = {
   isInCart: false,
 };
 
-// TODO: un-skip after local state fixes
+// FIXME: fix test
 xdescribe('Launch Page', () => {
   // automatically unmount and cleanup DOM after the test is finished.
   afterEach(cleanup);
@@ -43,7 +34,7 @@ xdescribe('Launch Page', () => {
         result: { data: { launch: mockLaunch } },
       },
     ];
-    const { getByText } = await renderApollo(<Launch launchId={1} />, {
+    const { getByText } = await renderApollo(<Launch launchId="1" />, {
       mocks,
     });
     await waitForElement(() => getByText(/test mission/i));

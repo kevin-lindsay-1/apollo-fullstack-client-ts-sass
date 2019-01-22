@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { render, cleanup } from '../../test-utils';
+import { cleanup, render } from '../../test-utils';
 import LaunchTile from '../launch-tile';
 
 describe('Launch Tile', () => {
@@ -15,7 +14,7 @@ describe('Launch Tile', () => {
           mission: { name: 'the first one' },
           rocket: { name: 'harambe' },
         }}
-      />,
+      />
     );
   });
 });

@@ -1,20 +1,11 @@
 import React from 'react';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-
 import {
-  renderApollo,
   cleanup,
-  getByTestId,
   fireEvent,
+  renderApollo,
   waitForElement,
-  render,
 } from '../../test-utils';
-import ActionButton, {
-  GET_LAUNCH_DETAILS,
-  CANCEL_TRIP,
-  TOGGLE_CART_MUTATION,
-} from '../action-button';
-import { GET_CART_ITEMS } from '../../pages/cart';
+import ActionButton, { TOGGLE_CART } from '../action-button';
 
 describe('action button', () => {
   // automatically unmount and cleanup DOM after the test is finished.
@@ -46,51 +37,23 @@ describe('action button', () => {
    * tried to execute any mutation not mocked, it would throw an
    * error
    */
+  // FIXME: fix test
   xit('fires correct mutation with variables', async () => {
-    // const cache = new InMemoryCache();
-    // cache.writeQuery({
-    //   query: GET_CART_ITEMS,
-    //   data: { cartItems: [1] },
-    // });
-
     // if we only provide 1 mock, any other queries would cause error
-    let mocks = [
+    const mocks = [
       {
-        request: { query: TOGGLE_CART_MUTATION, variables: { launchId: 1 } },
+        request: { query: TOGGLE_CART, variables: { launchId: 1 } },
         result: { data: { addOrRemoveFromCart: true } },
       },
     ];
 
-    const { getByTestId, container, debug } = renderApollo(
+    const { getByTestId } = renderApollo(
       <ActionButton id={1} isBooked={false} />,
       {
         mocks,
-        // cache
-      },
+      }
     );
     fireEvent.click(getByTestId('action-button'));
     await waitForElement(() => getByTestId('action-button'));
-
-    // mocks = [
-    //   {
-    //     request: {
-    //       query: CANCEL_TRIP,
-    //       variables: { launchId: 1 },
-    //     },
-    //     result: {
-    //       data: {
-    //         cancelTrip: {
-    //           success: true,
-    //           message: '',
-    //           launches: [{ id: 1, isBooked: false }],
-    //         },
-    //       },
-    //     },
-    //   },
-    // ];
-
-    // renderApollo(<ActionButton id={1} isBooked={true} />, { mocks, container });
-    // fireEvent.click(getByTestId('action-button'));
-    // await waitForElement(() => getByTestId('action-button'));
   });
 });

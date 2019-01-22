@@ -21,7 +21,7 @@ RUN npm i
 COPY . ./
 
 # Run tests
-RUN npm run test
+RUN npm test -- --coverage
 
 # If tests pass, build
 RUN npm run build
@@ -40,8 +40,8 @@ WORKDIR /usr/src/app
 # Get sources from previous build
 COPY --from=build /usr/src/app/build ./
 
-# Install serve
-RUN npm i serve
+# Install production dependencies
+RUN npm i --only-production
 
 # Inform container runner which port to use
 EXPOSE $port
