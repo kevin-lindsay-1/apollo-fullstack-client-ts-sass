@@ -26,7 +26,7 @@ describe('Login Page', () => {
       },
     ];
 
-    const { getByText, getByTestId } = await renderApollo(<Login />, {
+    const { getByText, getByTestId } = renderApollo(<Login />, {
       mocks,
       cache,
     });

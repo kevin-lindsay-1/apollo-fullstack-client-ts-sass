@@ -41,7 +41,7 @@ describe('cart item', () => {
     return waitForElement(() => getByText(/test mission/i));
   });
 
-  it('renders with error state', () => {
+  it('renders with error state', async () => {
     const mocks = [
       {
         request: { query: GET_LAUNCH, variables: { launchId: 1 } },
@@ -56,6 +56,6 @@ describe('cart item', () => {
       addTypename: false,
     });
 
-    waitForElement(() => getByText(/error: aw shucks/i));
+    await waitForElement(() => getByText(/error: aw shucks/i));
   });
 });

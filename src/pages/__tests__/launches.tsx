@@ -39,7 +39,7 @@ xdescribe('Launches Page', () => {
         },
       },
     ];
-    const { getByText } = await renderApollo(<Launches />, {
+    const { getByText } = renderApollo(<Launches />, {
       mocks,
     });
     await waitForElement(() => getByText(/test mission/i));

@@ -34,7 +34,7 @@ xdescribe('Launch Page', () => {
         result: { data: { launch: mockLaunch } },
       },
     ];
-    const { getByText } = await renderApollo(<Launch launchId="1" />, {
+    const { getByText } = renderApollo(<Launch launchId="1" />, {
       mocks,
     });
     await waitForElement(() => getByText(/test mission/i));
