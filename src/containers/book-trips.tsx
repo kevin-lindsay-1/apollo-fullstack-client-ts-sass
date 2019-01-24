@@ -7,7 +7,7 @@ import { GET_LAUNCH } from './cart-item';
 // export all queries used in this file for testing
 export { GET_LAUNCH };
 export const BOOK_TRIPS = gql`
-  mutation BookTrips($launchIds: [ID]!) {
+  mutation BookTrips($launchIds: [ID!]!) {
     bookTrips(launchIds: $launchIds) {
       success
       message

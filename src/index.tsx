@@ -12,7 +12,7 @@ import { resolvers, typeDefs } from './resolvers';
 import './scss/index.scss';
 
 const httpLink = createHttpLink({
-  uri: process.env.API_URI,
+  uri: process.env.REACT_APP_API_URI,
 });
 
 const authLink = setContext((_, { headers }) => {

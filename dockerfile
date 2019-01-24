@@ -4,18 +4,24 @@
 
 # Pull node LTS image
 FROM node:lts AS build
+# Environment Varibles
+ENV NODE_ENV=production
+ENV CI=true
 
 # Set the working directory
 WORKDIR /usr/src/app
 
-# Get files
-COPY . .
+# Get dependency info
+COPY package*.json ./
 
-# Install all dependencies
-RUN npm i
+# Install dependencies
+RUN npm ci
+
+# Get the rest
+COPY ./ ./
 
 # Run tests
-#RUN npm test -- --coverage
+RUN npm test
 
 # If tests pass, build
 RUN npm run build
@@ -27,22 +33,15 @@ RUN npm run build
 # If build succeeds, grab the output files
 # Reset the container
 FROM node:lts
-#
-# Define production environment variables
-ENV port=3000
 
 # Set the working directory
 WORKDIR /usr/src/app
 
-# Install production dependencies
-RUN npm i -g serve env-cmd
+# Install tiny webserver
+RUN npm i -g serve
 
 # Get sources from previous build
-COPY --from=build /usr/src/app/.env .
-COPY --from=build /usr/src/app/build .
-
-# Inform container runner which port to use
-EXPOSE $port
+COPY --from=build /usr/src/app/build/ ./build/
 
 # Start the server when the container initializes
-CMD env-cmd .env serve -s build -l ${port}
+CMD ["serve", "-s", "build"]
