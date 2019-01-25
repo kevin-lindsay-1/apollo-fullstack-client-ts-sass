@@ -16,10 +16,6 @@ steps:
       - --cache-from
       - gcr.io/$PROJECT_ID/fullstack-client:latest
       - .
-    env:
-      - APP_LISTEN_PORT=80
-    secretEnv:
-      - REACT_APP_API_URI
 
 images:
   - gcr.io/$PROJECT_ID/fullstack-client
