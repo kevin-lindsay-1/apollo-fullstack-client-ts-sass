@@ -32,9 +32,6 @@ FROM node:lts
 # Environment variables
 ENV NODE_ENV=production
 
-# Note: env-cmd and cross-var in npm script should override this
-ENV APP_LISTEN_PORT=9999
-
 # Set the working directory
 WORKDIR /usr/src/app
 
