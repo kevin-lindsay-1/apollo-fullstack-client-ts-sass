@@ -4,9 +4,6 @@
 
 # Pull node LTS image
 FROM node:lts AS build
-
-COPY /workspace/.env ./
-
 # Environment variables
 ENV CI=true
 
