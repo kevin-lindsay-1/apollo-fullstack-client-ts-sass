@@ -33,7 +33,7 @@ FROM node:lts
 ENV NODE_ENV=production
 
 # Note: env-cmd and cross-var in npm script should override this
-ENV DOCKER_LISTEN_PORT=9999
+ENV APP_LISTEN_PORT=9999
 
 # Set the working directory
 WORKDIR /usr/src/app
@@ -48,4 +48,4 @@ RUN npm ci
 COPY --from=build /usr/src/app/build/ ./build/
 
 # Start the server when the container initializes
-CMD npx --no-install serve -s build -l ${DOCKER_LISTEN_PORT}
+CMD npx --no-install serve -s build -l ${APP_LISTEN_PORT}
