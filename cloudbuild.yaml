@@ -9,6 +9,7 @@ steps:
         'gcr.io/$PROJECT_ID/fullstack-client:latest',
         '.',
       ]
+    env: ['APP_LISTEN_PORT=3999']
     secretEnv: ['REACT_APP_API_URI']
 
 images:
