@@ -6,7 +6,6 @@
 FROM node:lts AS build
 # Environment variables
 ENV CI=true
-ENV REACT_APP_API_URI='1234'
 
 # Set the working directory
 WORKDIR /usr/src/app
@@ -31,6 +30,7 @@ RUN npm run build
 FROM node:lts
 # Environment variables
 ENV NODE_ENV=production
+ENV APP_LISTEN_PORT=9999
 
 # Set the working directory
 WORKDIR /usr/src/app
