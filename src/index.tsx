@@ -11,6 +11,7 @@ import Login from './pages/login';
 import { resolvers, typeDefs } from './resolvers';
 import './scss/index.scss';
 
+// tslint:disable-next-line
 console.log(process.env.REACT_APP_API_URI);
 
 const httpLink = createHttpLink({
