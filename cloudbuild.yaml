@@ -1,18 +1,18 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args:
-    - build
-    - --build-arg REACT_APP_API_URI=$$REACT_APP_API_URI
-    - -t gcr.io/$PROJECT_ID/fullstack-client:latest
-    - --cache-from gcr.io/$PROJECT_ID/fullstack-client:latest
-    - .
-  secretEnv: ['REACT_APP_API_URI']
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - --build-arg REACT_APP_API_URI=$$REACT_APP_API_URI
+      - -t gcr.io/$PROJECT_ID/fullstack-client:latest
+      - --cache-from gcr.io/$PROJECT_ID/fullstack-client:latest
+      - .
+    secretEnv: ['REACT_APP_API_URI']
 
 images:
-- gcr.io/$PROJECT_ID/fullstack-client
+  - gcr.io/$PROJECT_ID/fullstack-client
 
 secrets:
-- kmsKeyName: projects/apollo-server-227201/locations/global/keyRings/Client/cryptoKeys/env
-  secretEnv:
-    REACT_APP_API_URI: CiQAQCQ1fiWVFqFUflWySVFeDpZQccusHaWRZ3FlDvv0IVAveNkSMgBm4wnPwNCu+kXc4SjUyg2S
-Zy1nYLeNAtgn4o3oc8hXjCn+OIn3s8eEFn/NEijBp3T6
+  - kmsKeyName: projects/apollo-server-227201/locations/global/keyRings/Client/cryptoKeys/env
+    secretEnv:
+      REACT_APP_API_URI: CiQAQCQ1fiWVFqFUflWySVFeDpZQccusHaWRZ3FlDvv0IVAveNkSMgBm4wnPwNCu+kXc4SjUyg2S
+  Zy1nYLeNAtgn4o3oc8hXjCn+OIn3s8eEFn/NEijBp3T6
