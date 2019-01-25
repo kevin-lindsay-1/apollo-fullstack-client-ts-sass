@@ -1,13 +1,4 @@
 steps:
-  - name: gcr.io/cloud-builders/gcloud
-    args:
-      - kms
-      - decrypt
-      - --ciphertext-file=.env.enc
-      - --plaintext-file=.env
-      - --location=global
-      - --keyring=Client
-      - --key=env
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - build
