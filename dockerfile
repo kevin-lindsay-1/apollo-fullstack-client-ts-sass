@@ -26,7 +26,6 @@ RUN npm run build
 # DEPLOY
 # ------
 
-# If build succeeds, grab the output files
 # Reset the container
 FROM node:lts
 # Environment variables
@@ -38,7 +37,7 @@ ENV APP_LISTEN_PORT=9999
 # Set the working directory
 WORKDIR /usr/src/app
 
-# Get dependency info
+# Get dependency info from previous build
 COPY --from=build /usr/src/app/package*.json ./
 
 # Install tiny webserver
