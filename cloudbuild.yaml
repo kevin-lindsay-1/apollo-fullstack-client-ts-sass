@@ -23,4 +23,5 @@ images:
 secrets:
   - kmsKeyName: projects/apollo-server-227201/locations/global/keyRings/Client/cryptoKeys/env
     secretEnv:
-      REACT_APP_API_URI: CiQAPSYH/BmttyHgtnF6B6W5dk2ovZBag6JmEmMkUXIV8+tfOmISIQA93WoCINSjnLzFtwSUEs/Qlt772cpFJ3AG3xNIL4gXlw==
+      REACT_APP_API_URI: CiQAQCQ1fiWVFqFUflWySVFeDpZQccusHaWRZ3FlDvv0IVAveNkSMgBm4wnPwNCu+kXc4SjUyg2S
+Zy1nYLeNAtgn4o3oc8hXjCn+OIn3s8eEFn/NEijBp3T6
