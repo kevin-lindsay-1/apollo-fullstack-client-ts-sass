@@ -1,6 +1,14 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/fullstack-client', '.']
+    args:
+      [
+        'build',
+        '-t',
+        'gcr.io/$PROJECT_ID/fullstack-client:latest',
+        '--cache-from',
+        'gcr.io/$PROJECT_ID/fullstack-client:latest',
+        '.',
+      ]
     secretEnv: ['REACT_APP_API_URI']
 
 images:
