@@ -15,6 +15,8 @@ ENV CI=true
 # Set the working directory
 WORKDIR /usr/src/app
 
+RUN ls -a
+
 # Get dependency info
 COPY package*.json ./
 
