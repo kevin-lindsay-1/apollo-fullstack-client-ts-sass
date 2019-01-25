@@ -6,7 +6,8 @@ steps:
       - -t gcr.io/$PROJECT_ID/fullstack-client:latest
       - --cache-from gcr.io/$PROJECT_ID/fullstack-client:latest
       - .
-    secretEnv: ['REACT_APP_API_URI']
+    secretEnv:
+      - REACT_APP_API_URI
 
 images:
   - gcr.io/$PROJECT_ID/fullstack-client
