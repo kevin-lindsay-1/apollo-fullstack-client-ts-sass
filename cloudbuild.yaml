@@ -11,8 +11,6 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - build
-      - --env-file
-      - /workspace/.env
       - -t
       - gcr.io/$PROJECT_ID/fullstack-client:latest
       - --cache-from
