@@ -1,0 +1,12 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/fullstack-client', '.']
+    secretEnv: ['REACT_APP_API_URI']
+
+images:
+  - 'gcr.io/$PROJECT_ID/fullstack-client'
+
+secrets:
+  - kmsKeyName: projects/$PROJECT_ID/locations/global/keyRings/Client/cryptoKeys/Client
+    secretEnv:
+      REACT_APP_API_URI: CiQAPSYH/BmttyHgtnF6B6W5dk2ovZBag6JmEmMkUXIV8+tfOmISIQA93WoCINSjnLzFtwSUEs/Qlt772cpFJ3AG3xNIL4gXlw==
