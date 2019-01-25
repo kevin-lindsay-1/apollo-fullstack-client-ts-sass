@@ -1,21 +1,25 @@
 steps:
+  - name: gcr.io/cloud-builders/gcloud
+    args:
+      - kms
+      - decrypt
+      - --ciphertext-file=.env.enc
+      - --plaintext-file=.env
+      - --location=global
+      - --keyring=Client
+      - --key=env
   - name: 'gcr.io/cloud-builders/docker'
     args:
-      [
-        'build',
-        '-t',
-        'gcr.io/$PROJECT_ID/fullstack-client:latest',
-        '--cache-from',
-        'gcr.io/$PROJECT_ID/fullstack-client:latest',
-        '.',
-      ]
-    env: ['APP_LISTEN_PORT=80']
-    secretEnv: ['REACT_APP_API_URI']
+      - build
+      - -t
+      - gcr.io/$PROJECT_ID/fullstack-client:latest
+      - --cache-from
+      - gcr.io/$PROJECT_ID/fullstack-client:latest
+      - .
+    env:
+      - APP_LISTEN_PORT=80
+    secretEnv:
+      - REACT_APP_API_URI
 
 images:
-  - 'gcr.io/$PROJECT_ID/fullstack-client'
-
-secrets:
-  - kmsKeyName: projects/apollo-server-227201/locations/global/keyRings/Client/cryptoKeys/Client
-    secretEnv:
-      REACT_APP_API_URI: CiQAPSYH/BmttyHgtnF6B6W5dk2ovZBag6JmEmMkUXIV8+tfOmISIQA93WoCINSjnLzFtwSUEs/Qlt772cpFJ3AG3xNIL4gXlw==
+  - gcr.io/$PROJECT_ID/fullstack-client
