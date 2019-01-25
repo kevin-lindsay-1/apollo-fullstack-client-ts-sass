@@ -21,6 +21,6 @@ images:
   - gcr.io/$PROJECT_ID/fullstack-client
 
 secrets:
-  - kmsKeyName: projects/apollo-server-227201/locations/global/keyRings/Client/cryptoKeys/Client
+  - kmsKeyName: projects/apollo-server-227201/locations/global/keyRings/Client/cryptoKeys/env
     secretEnv:
       REACT_APP_API_URI: CiQAPSYH/BmttyHgtnF6B6W5dk2ovZBag6JmEmMkUXIV8+tfOmISIQA93WoCINSjnLzFtwSUEs/Qlt772cpFJ3AG3xNIL4gXlw==
