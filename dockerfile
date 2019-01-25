@@ -7,6 +7,8 @@ FROM node:lts AS build
 RUN echo $REACT_APP_API_URI $APP_LISTEN_PORT
 RUN echo ${REACT_APP_API_URI} ${APP_LISTEN_PORT}
 
+RUN CAT .env
+
 # Environment variables
 ENV CI=true
 
