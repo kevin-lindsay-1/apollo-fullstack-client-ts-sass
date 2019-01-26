@@ -2,7 +2,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
     args:
-      - c
+      - -c
       - build
       - --build-arg
       - REACT_APP_API_URI=$$REACT_APP_API_URI
