@@ -21,6 +21,9 @@ RUN npm ci
 # Get the rest
 COPY ./ ./
 
+# Lint & test
+RUN npm test
+
 # If tests pass, build
 RUN REACT_APP_API_URI=${REACT_APP_API_URI} npm run build
 

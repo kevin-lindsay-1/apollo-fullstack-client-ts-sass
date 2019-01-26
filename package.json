@@ -8,8 +8,8 @@
     "test": "npm run lint && react-scripts test",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "docker:build": "docker build -t fullstack-client .",
-    "docker:run": "env-cmd .env cross-var docker run --rm -it -e APP_LISTEN_PORT=$APP_LISTEN_PORT -p $APP_LISTEN_PORT:$APP_LISTEN_PORT --name fullstack-client fullstack-client"
+    "docker:build": "env-cmd --fallback .env.local cross-var docker build -t fullstack-client --build-arg \"REACT_APP_API_URI=$REACT_APP_API_URI\" .",
+    "docker:run": "env-cmd --fallback .env.local cross-var docker run --rm -it -e APP_LISTEN_PORT=$APP_LISTEN_PORT -p $APP_LISTEN_PORT:$APP_LISTEN_PORT --name fullstack-client fullstack-client"
   },
   "dependencies": {
     "serve": "^10.1.1"
