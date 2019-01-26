@@ -6,9 +6,6 @@
 FROM node:lts AS build
 ARG REACT_APP_API_URI
 
-RUN echo $REACT_APP_API_URI $APP_LISTEN_PORT
-RUN echo ${REACT_APP_API_URI} ${APP_LISTEN_PORT}
-
 # Environment variables
 ENV CI=true
 
@@ -25,7 +22,7 @@ RUN npm ci
 COPY ./ ./
 
 # If tests pass, build
-RUN npm run build
+RUN REACT_APP_API_URI=$REACT_APP_API_URI npm run build
 
 # ------
 # DEPLOY
@@ -35,7 +32,6 @@ RUN npm run build
 FROM node:lts
 # Environment variables
 ENV NODE_ENV=production
-ENV APP_LISTEN_PORT=9999
 
 # Set the working directory
 WORKDIR /usr/src/app
@@ -50,4 +46,4 @@ RUN npm ci
 COPY --from=build /usr/src/app/build/ ./build/
 
 # Start the server when the container initializes
-CMD npx --no-install serve -s build -l ${APP_LISTEN_PORT}
+CMD npx --no-install serve -s build -l 80
