@@ -22,8 +22,8 @@ RUN npm ci
 COPY ./ ./
 
 # If tests pass, build
-RUN echo REACT_APP_API_URI=$REACT_APP_API_URI npm run build
-RUN REACT_APP_API_URI=$REACT_APP_API_URI npm run build
+RUN echo REACT_APP_API_URI="${REACT_APP_API_URI}" npm run build
+RUN REACT_APP_API_URI="${REACT_APP_API_URI}" npm run build
 
 # ------
 # DEPLOY

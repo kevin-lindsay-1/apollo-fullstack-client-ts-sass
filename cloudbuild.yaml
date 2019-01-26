@@ -5,7 +5,9 @@ steps:
       - -c
       - 'docker build
         --tag "gcr.io/$PROJECT_ID/fullstack-client:latest"
+        --cache-from "gcr.io/$PROJECT_ID/fullstack-client:latest"
         --build-arg "REACT_APP_API_URI=$$REACT_APP_API_URI"
+        --build-arg "APP_LISTEN_PORT="
         .'
     secretEnv:
       - REACT_APP_API_URI
@@ -16,4 +18,4 @@ images:
 secrets:
   - kmsKeyName: projects/apollo-server-227201/locations/global/keyRings/Client/cryptoKeys/env
     secretEnv:
-      REACT_APP_API_URI: CiQAQCQ1fu26d+m3LEheW2oHvi384/5a/sSMqBCUVipOJPLmnj8SSABm4wnPZyfgTeWqbCQ5xmJ2O6Q2l2rtpf2/AFmAjclF4uvNjyrOfJnQC4FSXuc0P68vPHgiaadtOr36LOSmALag4AiU0lDq2g==
+      REACT_APP_API_URI: CiQAQCQ1fofVIUYh0X0fsRfruwsdkxpErpONd99Q+piP2M5y0TYSRQBm4wnPQTT3BrLHHV/TnYlG5SeB6gix2fZl8fNp6h/VNPjPx3TLtnJHAjNmbKT1f5NcGZfiNERCafn7DAfybT1IJWTbBA==
