@@ -3,7 +3,7 @@ steps:
     entrypoint: 'bash'
     args:
       - -c
-      - 'docker build --build-arg REACT_APP_API_URI=$$REACT_APP_API_URI --tag gcr.io/$PROJECT_ID/fullstack-client:latest .'
+      - 'docker build --tag gcr.io/$PROJECT_ID/fullstack-client:latest .'
       # - build
       # - --build-arg
       # - REACT_APP_API_URI=$REACT_APP_API_URI
