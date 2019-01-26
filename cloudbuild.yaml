@@ -7,14 +7,6 @@ steps:
         --tag "gcr.io/$PROJECT_ID/fullstack-client:latest"
         --build-arg "REACT_APP_API_URI=$$REACT_APP_API_URI"
         .'
-      # - build
-      # - --build-arg
-      # - REACT_APP_API_URI=$REACT_APP_API_URI
-      # - -t
-      # - gcr.io/$PROJECT_ID/fullstack-client:latest
-      # - --cache-from
-      # - gcr.io/$PROJECT_ID/fullstack-client:latest
-      # - .
     secretEnv:
       - REACT_APP_API_URI
 
