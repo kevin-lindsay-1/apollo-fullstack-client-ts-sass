@@ -3,7 +3,7 @@ steps:
     entrypoint: 'bash'
     args:
       - -c
-      - 'docker build --build-arg REACT_APP_API_URI=$$REACT_APP_API_URI .'
+      - 'docker build --build-arg REACT_APP_API_URI="$$REACT_APP_API_URI" .'
     secretEnv:
       - REACT_APP_API_URI
 
