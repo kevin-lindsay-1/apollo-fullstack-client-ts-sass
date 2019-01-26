@@ -7,11 +7,9 @@ steps:
         --tag "gcr.io/$PROJECT_ID/fullstack-client:latest"
         --cache-from "gcr.io/$PROJECT_ID/fullstack-client:latest"
         --build-arg "REACT_APP_API_URI=$$REACT_APP_API_URI"
-        --build-arg "APP_LISTEN_PORT=$$APP_LISTEN_PORT"
         .'
     secretEnv:
       - REACT_APP_API_URI
-      - APP_LISTEN_PORT
 
 images:
   - gcr.io/$PROJECT_ID/fullstack-client
@@ -20,4 +18,3 @@ secrets:
   - kmsKeyName: projects/apollo-server-227201/locations/global/keyRings/Client/cryptoKeys/env
     secretEnv:
       REACT_APP_API_URI: CiQAQCQ1fv/NxBtIeYkfF7jI2LQaaCRVq84KJ3MHkt+exzHotk4SRABm4wnPrXqO5KErNzTpVMFqt2ziBev706wx9BF/CsZtCHiR/Y3Tgqkc687iGRkQjfqg9E4fflXWvWGkpYd2axBS4L68
-      APP_LISTEN_PORT: CiQAQCQ1fhs72/9C84UnPqkYNd0vWfMeBVGukUOSQVg2qaxN/3USLABm4wnPbguqbWyEKdFKNL4zP069hRxBgyOnLpcOcv1nzKA9VvSYQtc5im/B
