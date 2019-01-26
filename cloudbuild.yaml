@@ -5,7 +5,7 @@ steps:
       - -c
       - 'docker build --build-arg REACT_APP_API_URI=$$REACT_APP_API_URI
         -t gcr.io/$PROJECT_ID/fullstack-client:latest
-        .'
+        -f ./dockerfile'
       # - build
       # - --build-arg
       # - REACT_APP_API_URI=$REACT_APP_API_URI
