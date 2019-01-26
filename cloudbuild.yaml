@@ -1,14 +1,20 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
+    entrypoint: 'bash'
     args:
-      - build
-      - --build-arg
-      - REACT_APP_API_URI=$REACT_APP_API_URI
-      - -t
-      - gcr.io/$PROJECT_ID/fullstack-client:latest
-      - --cache-from
-      - gcr.io/$PROJECT_ID/fullstack-client:latest
-      - .
+      - -c
+      - 'build --build-arg REACT_APP_API_URI=$REACT_APP_API_URI \
+        -t gcr.io/$PROJECT_ID/fullstack-client:latest \
+        --cache-from gcr.io/$PROJECT_ID/fullstack-client:latest \
+        .'
+      # - build
+      # - --build-arg
+      # - REACT_APP_API_URI=$REACT_APP_API_URI
+      # - -t
+      # - gcr.io/$PROJECT_ID/fullstack-client:latest
+      # - --cache-from
+      # - gcr.io/$PROJECT_ID/fullstack-client:latest
+      # - .
     secretEnv:
       - REACT_APP_API_URI
 
