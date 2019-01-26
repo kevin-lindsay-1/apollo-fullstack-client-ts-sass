@@ -1,11 +1,11 @@
-ARG REACT_APP_API_URI
-
 # -----
 # BUILD
 # -----
 
 # Pull node LTS image
 FROM node:lts AS build
+ARG REACT_APP_API_URI
+
 RUN echo $REACT_APP_API_URI $APP_LISTEN_PORT
 RUN echo ${REACT_APP_API_URI} ${APP_LISTEN_PORT}
 
