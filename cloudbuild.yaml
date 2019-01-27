@@ -1,4 +1,5 @@
 steps:
+  # Build container
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
     args:
@@ -11,9 +12,24 @@ steps:
     secretEnv:
       - REACT_APP_API_URI
 
-images:
-  - gcr.io/$PROJECT_ID/fullstack-client
+  # Push container to registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - push
+      - gcr.io/$PROJECT_ID/fullstack-client
 
+  # Deploy container and rolling update
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args:
+      - set
+      - image
+      - deployment/frontend
+      - frontend-container=gcr.io/$PROJECT_ID/fullstack-client:latest
+    env:
+      - CLOUDSDK_COMPUTE_ZONE=us-central-1-a
+      - CLOUDSDK_CONTAINER_CLUSTER=frontend
+
+# Encrypted variables to pass in at build time, runtime variables/secrets are in deployment configuration
 secrets:
   - kmsKeyName: projects/apollo-server-227201/locations/global/keyRings/Client/cryptoKeys/env
     secretEnv:
