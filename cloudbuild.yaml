@@ -26,7 +26,7 @@ steps:
       - deployment/frontend
       - frontend-container=gcr.io/$PROJECT_ID/fullstack-client:latest
     env:
-      - CLOUDSDK_COMPUTE_ZONE=us-central-1-a
+      - CLOUDSDK_COMPUTE_ZONE=us-central1-a
       - CLOUDSDK_CONTAINER_CLUSTER=frontend
 
 # Encrypted variables to pass in at build time, runtime variables/secrets are in deployment configuration
