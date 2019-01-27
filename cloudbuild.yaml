@@ -13,12 +13,6 @@ steps:
     secretEnv:
       - REACT_APP_API_URI
 
-  # Push container to registry
-  - name: 'gcr.io/cloud-builders/docker'
-    args:
-      - push
-      - gcr.io/$PROJECT_ID/$REPO_NAME
-
   # Deploy container and rolling update
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
@@ -29,6 +23,9 @@ steps:
     env:
       - CLOUDSDK_COMPUTE_ZONE=us-central1-a
       - CLOUDSDK_CONTAINER_CLUSTER=frontend
+
+images:
+  - gcr.io/$PROJECT_ID/$REPO_NAME
 
 # Encrypted variables to pass in at build time, runtime variables/secrets are in deployment configuration
 secrets:
