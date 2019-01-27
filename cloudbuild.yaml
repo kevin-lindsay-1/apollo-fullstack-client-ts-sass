@@ -5,8 +5,9 @@ steps:
     args:
       - -c
       - 'docker build
-        --tag "gcr.io/$PROJECT_ID/fullstack-client:latest"
-        --cache-from "gcr.io/$PROJECT_ID/fullstack-client:latest"
+        --tag "gcr.io/$PROJECT_ID/$REPO_NAME"
+        --tag "gcr.io/$PROJECT_ID/$REPO_NAME:$SHORT_SHA"
+        --cache-from "gcr.io/$PROJECT_ID/$REPO_NAME"
         --build-arg "REACT_APP_API_URI=$$REACT_APP_API_URI"
         .'
     secretEnv:
@@ -16,7 +17,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - push
-      - gcr.io/$PROJECT_ID/fullstack-client
+      - gcr.io/$PROJECT_ID/$REPO_NAME
 
   # Deploy container and rolling update
   - name: 'gcr.io/cloud-builders/kubectl'
@@ -24,7 +25,7 @@ steps:
       - set
       - image
       - deployment/frontend
-      - frontend-container=gcr.io/$PROJECT_ID/fullstack-client:latest
+      - frontend-container=gcr.io/$PROJECT_ID/$REPO_NAME:$SHORT_SHA
     env:
       - CLOUDSDK_COMPUTE_ZONE=us-central1-a
       - CLOUDSDK_CONTAINER_CLUSTER=frontend
