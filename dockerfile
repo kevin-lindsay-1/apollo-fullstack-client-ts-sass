@@ -21,7 +21,10 @@ RUN npm ci
 # Get the rest
 COPY ./ ./
 
-# Lint & test
+# Lint files
+RUN npm run lint
+
+# Test files
 RUN npm test
 
 # If tests pass, build
@@ -48,6 +51,8 @@ RUN npm ci
 
 # Get sources from previous build
 COPY --from=build /usr/src/app/build/ ./build/
+
+RUN ls -a
 
 # Start the server when the container initializes
 CMD npx --no-install serve -s build -l ${APP_LISTEN_PORT}
