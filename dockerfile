@@ -38,7 +38,7 @@ RUN REACT_APP_API_URI=${REACT_APP_API_URI} npm run build
 FROM node:lts
 # Environment variables
 ENV NODE_ENV=production
-ENV APP_LISTEN_PORT=9999
+ENV PORT=9999
 
 # Set the working directory
 WORKDIR /usr/src/app
@@ -55,4 +55,4 @@ COPY --from=build /usr/src/app/build/ ./build/
 RUN ls -a
 
 # Start the server when the container initializes
-CMD npx --no-install serve -s build -l ${APP_LISTEN_PORT}
+CMD npx --no-install serve -s build -l ${PORT}
