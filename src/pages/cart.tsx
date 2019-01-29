@@ -5,6 +5,7 @@ import { Query } from 'react-apollo';
 import { Header } from '../components';
 import Loading from '../components/loading';
 import { BookTrips, CartItem } from '../containers';
+
 export const GET_CART_ITEMS = gql`
   query GetCartItems {
     cartItems @client
